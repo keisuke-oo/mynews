@@ -33,3 +33,20 @@ Route::group(['prefix' => 'admin'], function() {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+#PHP/Laravel 13で追記
+Route::group(['prefix' => 'admin','middleware' => 'auth'],function() {
+     Route::get('news/create','Admin\NewsController@add');
+     Route::post('news/create','Admin\NewsController@create');
+});
+
+#PHP/Laravel 13 【応用３】
+Route::group(['prefix' => 'admin','middleware' => 'auth'],function() {
+     Route::get('profile/create','Admin\ProfileController@add');  
+     Route::post('profile/create','Admin\ProfileController@create');
+});
+#PHP/Laravel 13 【応用６】
+Route::group(['prefix' => 'admin','middleware' => 'auth'],function() {
+     Route::get('profile/edit','Admin\ProfileController@add');  
+     Route::post('profile/edit','Admin\ProfileController@updat');
+});
