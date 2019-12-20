@@ -17,7 +17,15 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'admin'], function() {
   Route::get('news/create', 'Admin\NewsController@add')->middleware('auth');
+  Route::post('news/create','Admin\NewsController@create')->middleware('auth');
+#PHP/Laravel 15 [Routingを実装する]で追記
+  Route::get('news', 'Admin\NewsController@index')->middleware('auth');  
 });
+#PHP/Laravel 16 [View を実装する]で追記
+  Route::get('news/edit', 'Admin\NewsController@edit')->middleware('auth');
+  Route::post('news/edit', 'Admin\NewsController@update')->middleware('auth');
+#PHP/Laravel 16 [Routingを実装する]で追記
+  Route::get('news/delete', 'Admin\NewsController@delete')->middleware('auth');  
 
 #課題３
 Route::get('admin/XXX/', 'Admin\AAAController@bbb');
@@ -38,6 +46,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'admin','middleware' => 'auth'],function() {
      Route::get('news/create','Admin\NewsController@add');
      Route::post('news/create','Admin\NewsController@create');
+  
 });
 
 #PHP/Laravel 13 【応用３】
@@ -48,5 +57,5 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'],function() {
 #PHP/Laravel 13 【応用６】
 Route::group(['prefix' => 'admin','middleware' => 'auth'],function() {
      Route::get('profile/edit','Admin\ProfileController@add');  
-     Route::post('profile/edit','Admin\ProfileController@updat');
+     Route::post('profile/edit','Admin\ProfileController@update');
 });
