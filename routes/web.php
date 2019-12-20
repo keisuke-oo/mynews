@@ -31,12 +31,10 @@ Route::group(['prefix' => 'admin'], function() {
 Route::get('admin/XXX/', 'Admin\AAAController@bbb');
 
 #課題４
-Route::group(['prefix' => 'admin'], function() {
+  Route::group(['prefix' => 'admin'], function() {
   Route::get('profile/create', 'Admin\ProfileController@add')->middleware('auth');
-});
-
-Route::group(['prefix' => 'admin'], function() {
   Route::get('profile/edit', 'Admin\ProfileController@edit')->middleware('auth');
+  Route::get('profile', 'Admin\ProfileController@index')->middleware('auth');   
 });
 Auth::routes();
 
