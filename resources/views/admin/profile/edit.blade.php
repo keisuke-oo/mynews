@@ -23,8 +23,8 @@
                <div class="form-group row">
     　            <label class="col-md-2">性別</label>
       　            <div class="col-md-10">
-                      <input type="radio" name="gender" value="{{ $profile_form->male }}">男性
-                      <input type="radio" name="gender" value="{{ $profile_form->female }}">女性
+                      <input type="radio" name="gender" value="male">男性
+                      <input type="radio" name="gender" value="female">女性
                    </div>
                </div>     
                <div class="form-group row">
@@ -51,8 +51,8 @@
                   <div class="col-md-4 mx-auto">
                       <h2>編集履歴</h2>
                       <ul class="list-group">
-                          @if ($news_form->histories != NULL)
-                              @foreach ($news_form->histories as $history)
+                          @if ($profile_form->profile_histories != NULL)
+                              @foreach ($profile_form->profile_histories as $history)
                                   <li class="list-group-item">{{ $history->edited_at }}</li>
                               @endforeach
                           @endif      

@@ -12,6 +12,7 @@
           <table class="table table-dark">
             <thead>
               <tr>
+                <th width="10%">ID</th>
                 <th width="10%">氏名</th>
                 <th width="5%">性別</th></th>
                 <th width="15%">趣味</th>
@@ -19,12 +20,13 @@
               </tr>
             </thead>
             <tbody>
+              @foreach($posts as $profile)              
                 <tr>
-                  <th>{{ $profiles->id }}</th>
-                  <td>{{ \Str::limit($profiles->name, 30)  }}</td>
-                  <td>{{ \Str::limit($profiles->gender, 5) }}</td>
-                  <td>{{ \Str::limit($profiles->hobby, 100) }}</td>
-                  <td>{{ \Str::limit($profiles->introduction, 300) }}</td>
+                  <th>{{ $profile->id }}</th>
+                  <td>{{ \Str::limit($profile->name, 30)  }}</td>
+                  <td>{{ \Str::limit($profile->gender, 5) }}</td>
+                  <td>{{ \Str::limit($profile->hobby, 100) }}</td>
+                  <td>{{ \Str::limit($profile->introduction, 300) }}</td>
                   <td>
                     <div>
                       <a href="{{ action('Admin\ProfileController@edit', ['id'=> $profile->id]) }}">編集</a>
@@ -34,6 +36,7 @@
                     </div>
                   </td>
                 </tr>
+              @endforeach 
             </tbody>
           </table>
         </div>
