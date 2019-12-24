@@ -1,6 +1,7 @@
 @extends('layouts.front')
 
 @section('content')
+        <p>課題用メッセージです</p>
     <div class="container">
         <hr color="#c0c0c0">
         @if (!is_null($headline))
@@ -58,3 +59,4 @@
     </div>
     </div>
 @endsection
+        <p>課題用メッセージです</p>
